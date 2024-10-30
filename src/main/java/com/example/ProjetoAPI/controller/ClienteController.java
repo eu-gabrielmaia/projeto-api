@@ -45,6 +45,19 @@ public class ClienteController {
         return cRepo.findByParteNomeEmail(nome, email);
     }
 
+    @PutMapping("/atualizar")
+    public void atualizarCliente(@RequestBody Cliente cliente){
+        cRepo.save(cliente);
+    }
 
+    @DeleteMapping("/excluir")
+    public void excluirCliente(@RequestBody Cliente cliente){
+        cRepo.delete(cliente);
+    }
+
+    @DeleteMapping("/excluirPorCodigo/{codigo}")
+    public void excluirClientePorCodigo(@RequestBody int codigo){
+        cRepo.deleteById(codigo);
+    }
 
 }
